@@ -2,7 +2,7 @@
 <#
 	// Settings
     ConnectionStringName = "EasyCMSSql";			// Uses last connection string in config if not specified
-    Namespace = "";
+    Namespace = "BasicModel";
     RepoName = "";
     GenerateOperations = true;
 	GeneratePocos = true;

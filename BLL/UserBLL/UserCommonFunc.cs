@@ -14,7 +14,7 @@ namespace BLL.UserBLL
         {
             Response r = new Response();
             Database db = new Database("EasyCMSSql");
-            User userCheck = db.Single<User>(1);
+            User userCheck = db.Single<User>("where Account=@0 and Password=@1",u.Account,u.Password);
             if(userCheck!=null)
             {
                 r.Code = 1;

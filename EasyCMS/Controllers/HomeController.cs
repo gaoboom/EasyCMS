@@ -49,8 +49,16 @@ namespace UI.Controllers
 
                 Response r= ucf.UserLogin(userLogin);
 
-
-                return View();
+                if(r.Code==1)//验证成功
+                {
+                    Session["User"] = r.ResObj;
+                    return RedirectToAction("Index", "Home");
+                }
+                else//验证失败
+                {
+                    ModelState.AddModelError("Password", r.Message);
+                    return View(u);
+                }
             }
             else
             {

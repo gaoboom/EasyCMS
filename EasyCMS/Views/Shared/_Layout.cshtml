@@ -23,6 +23,16 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @{
+                        if(Session.Count==0)
+                        {
+                            Html.ActionLink("Login", "Login", "Home");
+                        }
+                        else
+                        {
+                            Html.ActionLink(Session.Keys[0], "Mine", "User");
+                        }
+                    }
                 </ul>
             </div>
         </div>

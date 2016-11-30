@@ -24,15 +24,16 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @{
-                        if(Session.Count==0)
+                        if (Session.Count == 0)
                         {
-                            Html.ActionLink("Login", "Login", "Home");
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
                         }
                         else
                         {
-                            Html.ActionLink(Session.Keys[0], "Mine", "User");
+                            <li>@Html.ActionLink((Session[0] as BasicModel.User).Account.ToString(), "Mine", "User")</li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
                         }
-                    }
+}
                 </ul>
             </div>
         </div>

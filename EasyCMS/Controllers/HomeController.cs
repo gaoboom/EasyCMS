@@ -31,12 +31,21 @@ namespace UI.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 用户登陆 Get
+        /// </summary>
+        /// <returns>返回视图</returns>
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
+        /// <summary>
+        /// 用户登陆 Post
+        /// </summary>
+        /// <param name="u">用户登陆ViewModel</param>
+        /// <returns></returns>
         public ActionResult Login(VmUserLogin u)
         {
             if (ModelState.IsValid)
@@ -64,6 +73,12 @@ namespace UI.Controllers
             {
                 return View(u);
             }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

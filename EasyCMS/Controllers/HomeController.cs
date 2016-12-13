@@ -75,6 +75,10 @@ namespace UI.Controllers
             }
         }
 
+        /// <summary>
+        /// 用户登出
+        /// </summary>
+        /// <returns>转向到首页</returns>
         public ActionResult Logout()
         {
             Session.Clear();

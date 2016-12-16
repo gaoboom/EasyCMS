@@ -60,7 +60,8 @@ namespace UI.Controllers
 
                 if(r.Code==1)//验证成功
                 {
-                    Session["User"] = r.ResObj;
+                    Session["User"] = r.ResObj as BasicModel.User;//此处返回BasicModel.User，需转换为VmUserSession，去除非必须信息，如password
+
                     return RedirectToAction("Index", "Home");
                 }
                 else//验证失败
